@@ -6,7 +6,7 @@ const forwarded = require('forwarded-for');
 app.get('/', (req, res) => {
     const address = forwarded(req, req.headers);
     // res.json({ remoteAddress: address.ip, remotePort: req.socket.remotePort, timestamp: Date.now() })
-    res.json({ remoteAddress: address.ip, remotePort: address.port, timestamp: Date.now() })
+    res.json({ remoteAddress: address.ip, remotePort: address.port, timestamp: Date.now(), headers: req.headers })
 })
 
 app.listen(port, () => {
