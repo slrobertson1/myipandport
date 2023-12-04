@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "connect": "^3.7.0",
+    "express": "^4.18.2",
+    "forwarded-for": "^1.1.0",
+    "request-ip": "^3.3.0"
   }
 }

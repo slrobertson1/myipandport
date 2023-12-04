@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 8080
+const forwarded = require('forwarded-for');
 
 app.get('/', (req, res) => {
-    res.json({ remoteAddress: req.socket.remoteAddress, remotePort: req.socket.remotePort, timestamp: Date.now() })
+    const address = forwarded(req, req.headers);
+    res.json({ remoteAddress: address.ip, remotePort: req.socket.remotePort, timestamp: Date.now() })
 })
 
 app.listen(port, () => {
